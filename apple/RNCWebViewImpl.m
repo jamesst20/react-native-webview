@@ -1332,7 +1332,7 @@ RCTAutoInsetsProtocol>
     BOOL isTopFrame = [request.URL isEqual:request.mainDocumentURL];
     BOOL hasTargetFrame = navigationAction.targetFrame != nil;
 
-    /*if (_onOpenWindow && !hasTargetFrame) {
+    if (_onOpenWindow && !hasTargetFrame) {
       // When OnOpenWindow should be called, we want to prevent the navigation
       // If not prevented, the `decisionHandler` is called first and after that `createWebViewWithConfiguration` is called
       // In that order the WebView's ref would be updated with the target URL even if `createWebViewWithConfiguration` does not call `loadRequest`
@@ -1343,8 +1343,8 @@ RCTAutoInsetsProtocol>
       [event addEntriesFromDictionary: @{@"targetUrl": request.URL.absoluteString}];
       decisionHandler(WKNavigationActionPolicyCancel);
       _onOpenWindow(event);
-      return;
-    }*/
+      // return;
+    }
 
     if (_onShouldStartLoadWithRequest) {
         NSMutableDictionary<NSString *, id> *event = [self baseEvent];
